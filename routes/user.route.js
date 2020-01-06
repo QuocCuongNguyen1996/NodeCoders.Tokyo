@@ -1,5 +1,6 @@
 var express = require('express');
 var controller =require("../controllers/user.controller");
+var validate=require("../validate/user.validate");
 var router = express.Router();
 // var shortid = require('shortid');
 // var db=require("../db");
@@ -58,7 +59,7 @@ router.get('/:id',
 //     db.get('users').push(req.body).write();
 //     res.redirect("/users");
 // });
-router.post('/create',
+router.post('/create',validate.postCreate,
     controller.postCreate
 );
 
